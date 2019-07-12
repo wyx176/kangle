@@ -1,0 +1,193 @@
+<script type='text/javascript'>
+	jQuery(document).ready(function() {
+		jQuery(".wid_left").mouseover(function() {
+			jQuery(this).addClass('onMouseOver');
+		});
+		jQuery(".wid_left").mouseout(function() {
+			jQuery(this).removeClass('onMouseOver');
+		});
+	});
+</script>
+<script type='text/javascript'>
+var msg = '{{$msg}}';
+	function changePassword() {
+	}
+	function rebootProcess()
+	{
+		if (confirm("确定要重启吗？这将对你现在运行中的网站中断请求！")) {
+			$.get("?c=index&a=rebootProcess", function(data) {
+				alert(data);
+			});
+		}
+	}
+</script>
+
+   <!-- START Main wrapper-->
+   <section class="wrapper">
+      <!-- START Top Navbar-->
+      <nav role="navigation" class="navbar navbar-default navbar-top navbar-fixed-top">
+         <!-- START navbar header-->
+         <div class="navbar-header">
+            <a href="?c=index&a=main" class="navbar-brand">
+               <div class="brand-logo">6云主机控制面板</div>
+               <div class="brand-logo-collapsed">SIX</div>
+            </a>         </div>
+         <!-- END navbar header-->
+         <!-- START Nav wrapper-->
+         <div class="nav-wrapper">
+            <!-- START Left navbar-->
+            <ul class="nav navbar-nav">
+               <li>
+                  <a href="#" data-toggle="aside">
+                     <em class="fa fa-align-left"></em>
+                  </a>
+               </li>
+            </ul>
+            <!-- END Left navbar-->
+            <!-- START Right Navbar-->
+            <ul class="nav navbar-nav navbar-right">
+               <!-- START Alert menu-->
+               <li class="dropdown dropdown-list">
+                  <a href="#" data-toggle="dropdown" data-play="bounceIn" class="dropdown-toggle">
+                     <em class="fa fa-headphones"></em>
+                  </a>
+                  <!-- START Dropdown menu-->
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-menu-header">在线帮助</li>
+                     <li>
+                     <li>
+                        <!-- START list group-->
+                        <div class="list-group">
+                           <!-- list item-->
+                           <a href="http://wpa.qq.com/msgrd?v=3&uin=461313128&site=qq&menu=yes" target="_blank" class="list-group-item">
+                              <div class="media">
+                                 <div class="pull-left">
+                                    <em class="fa fa-qq fa-2x text-success"></em>
+                                 </div>
+                                 <div class="media-body clearfix">
+                                    <div class="media-heading">在线客服</div>
+                                 </div>
+                              </div>
+                           </a>
+                           <!-- list item-->
+                           <!--a href="/?c=article&a=lists&type=help" target="_blank" class="list-group-item">
+                              <div class="media">
+                                 <div class="pull-left">
+                                    <em class="fa fa-question fa-2x"></em>
+                                 </div>
+                                 <div class="media-body clearfix">
+                                    <div class="media-heading">帮助文档</div>
+                                 </div>
+                              </div>
+                           </a -->
+                           <!-- list item-->
+                           <!--a href="http://www.yonghensq.com/plugin.php?id=newtop_waterfall:newtop_waterfall" target="_blank" class="list-group-item">
+                              <div class="media">
+                                 <div class="pull-left">
+                                    <em class="fa fa-download fa-2x"></em>
+                                 </div>
+                                 <div class="media-body clearfix">
+                                    <div class="media-heading">下载中心</div>
+                                 </div>
+                              </div>
+                           </a -->
+                           <!-- last list item -->
+                           <!--a href="http://www.52webhl.com/?c=article&a=lists&type=help" target="_blank" class="list-group-item">
+                              <small>进入帮助中心</small>
+                           </a -->
+                        </div>
+                        <!-- END list group-->
+                     </li>
+                  </ul>
+                  <!-- END Dropdown menu-->
+               </li>
+               <!-- END Alert menu-->
+               <!-- START User menu-->
+               <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" data-play="bounceIn" class="dropdown-toggle">
+                     <em class="fa fa-user"></em>
+                  </a>
+                  <!-- START Dropdown menu-->
+                  <ul class="dropdown-menu">
+                     <li>
+                        <div class="p">
+                           您好， {{$vhost}}
+                        </div>
+                     </li>
+                     <li class="divider"></li>
+                     <li><a href="?c=index&a=main"><em class="fa fa-dashboard"></em>  面板首页</a>
+                     </li>
+                     <li><a href="?c=session&a=changePasswordForm"><em class="fa fa-cog"></em>  密码设置</a>
+                     </li>
+					 {{if $smarty.session.login_from=='vhost'}}
+                     <li><a href="?c=session&a=logout"><em class="fa fa-sign-out"></em>  安全退出</a>
+                     </li>
+					 {{/if}}
+                  </ul>
+                  <!-- END Dropdown menu-->
+               </li>
+               <!-- END User menu-->
+               <!-- START Contacts button-->
+               <!-- END Contacts menu-->
+            </ul>
+            <!-- END Right Navbar-->
+         </div>
+         <!-- END Nav wrapper-->
+      </nav>
+      <!-- END Top Navbar-->
+
+      <!-- START aside-->
+      <aside class="aside">
+         <!-- START Sidebar (left)-->
+         <nav class="sidebar">
+            <ul class="nav">
+               <!-- START user info-->
+               <li>
+                  <div data-toggle="collapse-next" class="item user-block has-submenu">
+                     <!-- User picture-->
+                     <div class="user-block-picture">
+                        <img src="{{$STATIC}}style/2014host/app/img/bg8.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
+                        <!-- Status when collapsed-->
+                        <div class="user-block-status">
+                           <div class="point point-success point-lg"></div>
+                        </div>
+                     </div>
+                     <!-- Name and Role-->
+                     <div class="user-block-info">
+                        <span class="user-block-name item-text">欢迎，&nbsp; {{$vhost}}</span>
+                        <span class="user-block-role">&nbsp;</span>
+                        <!-- START Dropdown to change status-->
+                        <div class="btn-group user-block-status">
+						{{if $user.status==3}}
+                           <button type="button" data-toggle="dropdown" data-play="fadeIn" data-duration="0.2" class="btn btn-xs dropdown-toggle">
+                              <div class="point point-danger"></div>主机：数据库超限</button>
+						{{elseif $user.status==2}}
+                           <button type="button" data-toggle="dropdown" data-play="fadeIn" data-duration="0.2" class="btn btn-xs dropdown-toggle">
+                              <div class="point point-danger"></div>主机：流量超限</button>
+						{{elseif $user.status==1}}
+                           <button type="button" data-toggle="dropdown" data-play="fadeIn" data-duration="0.2" class="btn btn-xs dropdown-toggle">
+                              <div class="point point-warning"></div>主机：暂停</button>
+						{{else}}
+                           <button type="button" data-toggle="dropdown" data-play="fadeIn" data-duration="0.2" class="btn btn-xs dropdown-toggle">
+                              <div class="point point-success"></div>主机：运行正常</button>
+						{{/if}}
+                        </div>
+                        <!-- END Dropdown to change status-->
+                     </div>
+                  </div>
+                  <!-- START User links collapse-->
+                  <ul class="nav collapse">
+                     <li><a href="?c=index&a=main">面板首页</a>
+                     </li>
+                     <li><a href="?c=session&a=changePasswordForm">修改密码</a>
+                     </li>
+                     <li class="divider"></li>
+					 {{if $smarty.session.login_from=='vhost'}}
+                     <li><a href="?c=session&a=logout">安全退出</a>
+                     </li>
+					 {{/if}}
+                  </ul>
+                  <!-- END User links collapse-->
+               </li>
+               <!-- END user info-->
+

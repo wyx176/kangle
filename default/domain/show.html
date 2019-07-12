@@ -1,0 +1,316 @@
+<script language='javascript' src='{{$STATIC}}js/domain.js'></script>
+               <!-- START Menu-->
+               <li class="active">
+                  <a href="#" title="基本功能" data-toggle="collapse-next" class="has-submenu">
+                     <em class="fa fa-gears"></em>
+                     <div class="label label-primary pull-right"></div>
+                     <span class="item-text">基本功能</span>                  </a>
+                  <!-- START SubMenu item-->
+                  <ul class="nav collapse in">
+                     <li class="active">
+                        <a href="?c=domain&a=show" title="域名绑定" data-toggle="" class="no-submenu">
+                           <span class="item-text">域名绑定</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=session&a=changePasswordForm" title="密码设置" data-toggle="" class="no-submenu">
+                           <span class="item-text">密码设置</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=speed&a=speedFrom" title="带宽限制" data-toggle="" class="no-submenu">
+                           <span class="item-text">带宽限制</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=cache&a=cacheFrom" title="缓存设置" data-toggle="" class="no-submenu">
+                           <span class="item-text">缓存设置</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=cacheclean&a=cachecleanFrom" title="清除缓存" data-toggle="" class="no-submenu">
+                           <span class="item-text">清除缓存</span>                        </a>                     </li>
+						   {{if $user.cdn==0}}
+                     <li>
+                        <a href="?c=info&a=showErrorPage" title="自定义错误页" data-toggle="" class="no-submenu">
+                           <span class="item-text">自定义错误页</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=response&a=gzipFrom" title="Gzip压缩" data-toggle="" class="no-submenu">
+                           <span class="item-text">Gzip压缩</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=mime&a=mimeFrom" title="MIME设置" data-toggle="" class="no-submenu">
+                           <span class="item-text">MIME设置</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=rewrite&a=rewriteFrom" title="域名跳转" data-toggle="" class="no-submenu">
+                           <span class="item-text">域名跳转</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=indexfile&a=indexfileFrom" title="默认文件" data-toggle="" class="no-submenu">
+                           <span class="item-text">默认文件</span>                        </a>                     </li>
+                     <li>
+                        <a href="javascript:rebootProcess();" title="重启主机" data-toggle="" class="no-submenu">
+                           <span class="item-text">重启主机</span>                        </a>                     </li>
+						   {{/if}}
+                  </ul>
+                  <!-- END SubMenu item-->
+               </li>
+			   {{if $user.cdn==0}}
+			   
+               <li>
+                  <a href="#" title="FTP/文件管理" data-toggle="collapse-next" class="has-submenu">
+                     <em class="fa fa-folder-open"></em>
+
+                     <span class="item-text">FTP/文件管理</span>                  </a>
+                  <!-- START SubMenu item-->
+                  <ul class="nav collapse ">
+                     <li>
+                        <a href="index.php?c=index&a=webftp" title="在线文件管理器" data-toggle="" class="no-submenu">
+                           <span class="item-text">在线文件管理器</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=shell&a=index" title="数据备份" data-toggle="" class="no-submenu">
+                           <span class="item-text">数据备份</span>                        </a>                     </li>
+				 {{if $user.ftp>0}}
+                     <li>
+                        <a href="?c=index&a=ftpForm" title="FTP设置" data-toggle="" class="no-submenu">
+                           <span class="item-text">FTP设置</span>                        </a>                     </li>
+					{{/if}}
+					{{if $ssl}}
+                     <li>
+                        <a href="?c=index&a=sslForm" title="SSL证书设置" data-toggle="" class="no-submenu">
+                           <span class="item-text">SSL证书设置</span>                        </a>                     </li>
+					{{/if}}
+					{{if $user.ssi}}
+                     <li>
+                        <a href="?c=ssi&a=show" title="SSI设置" data-toggle="" class="no-submenu">
+                           <span class="item-text">SSI设置</span>                        </a>                     </li>
+					{{/if}}
+                  </ul>
+                  <!-- END SubMenu item-->
+               </li>
+               <li>
+                  <a href='http://{{$smarty.server.SERVER_NAME}}:3313/mysql/?pma_username={{$user.db_name}}' target='_blank' title="phpMyAdmin" class="has-submenu">
+                     <em class="fa fa-table"></em>
+					 <div class="label label-primary pull-right">Mysql</div>
+                     <span class="item-text">数据库管理</span>                  </a>
+				</li>
+               {{/if}}	
+			   		   
+               <li>
+                  <a href="#" title="安全设置" data-toggle="collapse-next" class="has-submenu">
+                     <em class="fa fa-shield"></em>
+                     <span class="item-text">安全设置</span>                  </a>
+                  <!-- START SubMenu item-->
+                  <ul class="nav collapse ">
+                     <li>
+                        <a href="?c=banip&a=addTableFrom" title="禁止IP" data-toggle="" class="no-submenu">
+                           <span class="item-text">禁止IP</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=protection&a=addProtectionTableFrom" title="防盗链" data-toggle="" class="no-submenu">
+                           <span class="item-text">防盗链</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=antisql&a=antisqlFrom" title="参数过滤" data-toggle="" class="no-submenu">
+                           <span class="item-text">参数过滤</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=antiupload&a=antiuploadFrom" title="防木马上传" data-toggle="" class="no-submenu">
+                           <span class="item-text">防木马上传</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=anticc&a=anticcFrom" title="防CC攻击" data-toggle="" class="no-submenu">
+                           <span class="item-text">防CC攻击</span>                        </a>                     </li>
+                  </ul>
+                  <!-- END SubMenu item-->
+               </li>
+			   
+               <li>
+                  <a href="#" title="高级设置" data-toggle="collapse-next" class="has-submenu">
+                     <em class="fa fa-edit"></em>
+                     <span class="item-text">高级设置</span>                  </a>
+                  <!-- START SubMenu item-->
+                  <ul class="nav collapse ">
+                     <li>
+                        <a href="?c=flow&a=viewFlow&t=day" title="流量图" data-toggle="" class="no-submenu">
+                           <span class="item-text">流量图</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=connection&a=connectionFrom" title="连接信息" data-toggle="" class="no-submenu">
+                           <span class="item-text">连接信息</span>                        </a>                     </li>
+					{{if $user.cdn==0}}
+                     <li>
+                        <a href='/vhost/log.php/' target='_blank' title="日志分析" data-toggle="" class="no-submenu">
+                           <span class="item-text">日志分析</span>                        </a>                     </li>
+                     <li>
+                        <a href="?c=capability&a=capabilityFrom" title="性能分析" data-toggle="" class="no-submenu">
+                           <span class="item-text">性能分析</span>                        </a>                     </li>
+					{{if $user.cron>0}}
+                     <li>
+                        <a href="?c=cron&a=index" title="计划任务" data-toggle="" class="no-submenu">
+                           <div class="label label-primary pull-right">new</div>
+                           <span class="item-text">计划任务</span>                        </a>                     </li>
+					{{/if}}
+                     <li>
+                        <a href="?c=httpauth&a=index" title="HTTP认证" data-toggle="" class="no-submenu">
+                           <span class="item-text">HTTP认证</span>                        </a>                     </li>
+					{{/if}}
+                  </ul>
+                  <!-- END SubMenu item-->
+               </li>
+			   
+               <!-- END Menu-->
+               <!-- Sidebar footer    -->
+               <li class="nav-footer">
+                  <div class="nav-footer-divider"></div>
+                  <!-- START button group-->
+                  <div class="btn-group text-center">
+                     <a href="?c=session&a=changePasswordForm" data-toggle="tooltip" data-title="密码设置" class="btn btn-link">
+                        <em class="fa fa-cog text-muted"></em>                     </a>
+                     {{if $smarty.session.login_from=='vhost'}}
+                     <a href="?c=session&a=logout" data-toggle="tooltip" data-title="安全退出" class="btn btn-link">
+                        <em class="fa fa-sign-out text-muted"></em>                     </a>
+						{{/if}}
+                  </div>
+                  <!-- END button group-->
+               </li>
+            </ul>
+         </nav>
+         <!-- END Sidebar (left)-->
+      </aside>
+      <!-- End aside-->
+   <script src="{{$STATIC}}style/2014host/vendor/jquery/jquery.min.js"></script>
+   <script src="{{$STATIC}}style/2014host/vendor/bootstrap/js/bootstrap.min.js"></script>
+   <script src="{{$STATIC}}style/2014host/app/js/app.js"></script>
+      <!-- START Main section-->
+      <section>
+         <!-- START Page content-->
+         <section class="main-content">
+            <h3>绑定域名
+               <br><br />
+              <small style="font-size:18px;"><a href="?c=index&a=main" class="label label-primary">面板首页</a>&nbsp;<a href="?c=domain&a=show" class="label label-success">域名绑定</a>&nbsp;<a href="index.php?c=index&a=webftp" class="label label-info">文件管理器</a>&nbsp;<a href="http://{{$smarty.server.SERVER_NAME}}:3313/mysql/?pma_username={{$user.db_name}}" target="_blank" class="label label-purple">数据库管理</a>
+			   </small>          </h3>
+			
+			<div class="row">
+               <!-- START dashboard main content-->
+               <div class="col-md-12">
+
+                  <!-- START panel-->
+                  <div class="panel panel-default">
+                     <div class="panel-heading">域名绑定</div>
+                     <div class="panel-body">
+                        <!-- START table-responsive-->
+                        <div class="table-responsive">
+                           <table class="table">
+                              <thead>
+                                 <tr>
+                                    <th>操作</th>
+                                    <th>域名</th>
+                                    <th>{{if $user.cdn}}ip{{else}}目录{{/if}}</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+							  {{foreach from=$list item=row}}
+                                 <tr id='{{$row.id}}t'>
+                                    <td><a href="javascript:domain_del('{{$row.name}}',{{$row.id}})">删除</a></td>
+                                    <td><a href='http://{{$row.name}}' target='_blank'>{{$row.name}}</a></td>
+                                    <td>{{$row.value}}</td>
+                                 </tr>
+								 {{/foreach}}
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- END table-responsive-->
+						<br /><br />
+                              <p>&nbsp; &nbsp;<i class="fa fa-info-circle text-primary"></i>&nbsp; &nbsp;增加域名绑定，在添加绑定之前请先解析域名：<font color='red'>{{$domain_note}}</font></p><br />
+	                        <form name='nodeform' action="javascript:domain_add();" method="post" class="form-horizontal">
+                           <div class="form-group">
+                              <label class="col-lg-1 control-label">域名</label>
+                              <div class="col-lg-3">
+                                 <input type='text' name='domain' id='domain' value="{{$domain.domain}}" class="form-control">
+                              </div>
+                           </div>
+						   {{if $subdir_flag}}
+                           <div class="form-group">
+                              <label class="col-lg-1 control-label">{{if $user.cdn}}IP{{else}}目录{{/if}}</label>
+                              <div class="col-lg-3">
+                                 <input type='text' name='subdir' id='subdir' value="{{$default_subdir}}" class="form-control">
+                              </div>
+                           </div>
+						   {{/if}}
+                           <div class="form-group">
+                              <div class="col-lg-offset-1 col-lg-11">
+				<input type="button" id='button' class="btn btn-primary" onclick='domain_add();' value="确定" />
+				<input type="button" id='button' class="btn btn-default" onclick='piao_domain_import();' value="批量增加" />
+                              </div>
+                           </div>
+	</form>
+                     </div>
+                  </div>
+				  <br />
+			   <p><div class="label label-info">帮助文档</div> &nbsp; <a href="" data-toggle="modal" data-target="#myModal">如何绑定域名？</a></p>
+			   <p><div class="label label-info">帮助文档</div> &nbsp; <a href="" data-toggle="modal" data-target="#ejym">二级域名如何绑定子目录？</a></p>
+			   <p><div class="label label-warning">提示说明</div> &nbsp; 在万网等服务商新购的域名在做绑定前请先 删除 它默认的 A记录 ，否则会出现域名访问不是您的主机的错误。</p>
+			   <p><div class="label label-purple">外链教程</div> &nbsp; 各大域名商解析图文教程：    <a href="" data-toggle="modal" data-target="#ww">万网CNAME解析</a> &nbsp; <a href="http://jingyan.baidu.com/album/f96699bba5a0c2894f3c1b77.html" target="_blank"> DNSPOD</a>  &nbsp; <a href="http://jingyan.baidu.com/article/3052f5a1ab772297f31f86c2.html" target="_blank">西部数码</a>  &nbsp; <a href="http://jingyan.baidu.com/article/154b4631aaabbb28cb8f416a.html" target="_blank">景安</a> </p>
+                  <!-- END panel-->
+				</div>
+			   </div>
+               <!-- END dashboard sidebar-->
+            </div>
+         </section>
+         <!-- END Page content-->
+	  </section>
+      <!-- END Main section-->
+   </section>
+   <!-- END Main wrapper-->
+
+   <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+               <h4 id="myModalLabel" class="modal-title">如何绑定域名</h4>
+            </div>
+            <div class="modal-body">
+		    <p>在 “域名” 框填上您要绑定的域名，如：xxx.com，“目录” 框内填目录名，如：wwwroot (wwwroot为默认主目录)</p>
+			<br />
+			<p>如下图所示：</p>
+			<p><img src="{{$STATIC}}style/2014host/img/ymbd.jpg" class="img-thumbnail"></p>
+			</div>
+            <div class="modal-footer">
+               <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div id="ejym" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+               <h4 id="myModalLabel" class="modal-title">二级域名绑定,子目录绑定</h4>
+            </div>
+            <div class="modal-body">
+		    <p>例：将bbs.xxx.com绑定到主目录的bbs文件夹下，需要进入wwwroot文件夹，新建bbs目录，然后返回本页，在 “域名” 框内填：bbs.xxx.com， “目录” 框内填：wwwroot/bbs 即可完成绑定。</p>
+			<br />
+			<p>如下图所示：</p>
+			<p><img src="{{$STATIC}}style/2014host/img/ejym.jpg" class="img-thumbnail"></p>
+			</div>
+            <div class="modal-footer">
+               <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   <div id="ww" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+               <h4 id="myModalLabel" class="modal-title">万网CNAME解析教程</h4>
+            </div>
+            <div class="modal-body">
+		    <p>1. 登录万网，进入您的域名管理页，在“解析设置” 页点击 “进入高级设置”。（如下图所示，点击图片查看高清大图）</p>
+			<p><a href="{{$STATIC}}style/2014host/img/ww1.png" target="_blank"><img src="{{$STATIC}}style/2014host/img/ww1.png" class="img-thumbnail"></a></p>
+			<br />
+		    <p>2. 点击 “添加解析”  “记录类型”选择“cname”，“主机记录”填您需要绑定的域名前缀，“记录值”填写我们为您提供的cname的解析地址。（如下图所示，点击图片查看高清大图）</p>
+			<p><a href="{{$STATIC}}style/2014host/img/ww2.png" target="_blank"><img src="{{$STATIC}}style/2014host/img/ww2.png" class="img-thumbnail"></a></p>
+			<p><a href="{{$STATIC}}style/2014host/img/ww3.png" target="_blank"><img src="{{$STATIC}}style/2014host/img/ww3.png" class="img-thumbnail"></a></p>
+			</div>
+            <div class="modal-footer">
+               <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+<script>
+	nodeform.domain.focus();
+</script>
