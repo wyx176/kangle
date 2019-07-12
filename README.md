@@ -6,7 +6,7 @@ ep 后台切换就行<br>
 
 
 ## vhms模板配置:<br>
-windos和linux下一样的恩<br>
+windos和linux下一样的<br>
 user/view/ <br>
 上传到你销售网站这个目录即可<br>
 然后解压后台切换，注意路径哈<br>
