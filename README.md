@@ -1,5 +1,5 @@
 ### kangle配置路径
-##ep模板配置方面:
+##ep模板配置方面:<br>
 windows：  kangle目录\Kangle\nodewww\webftp\vhost\view 放在此目录就行
 liunx ：  vhs\Kangle\nodewww\webftp\vhost\view
 ep 后台切换就行
