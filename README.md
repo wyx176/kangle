@@ -4,6 +4,8 @@ windows：  kangle目录\Kangle\nodewww\webftp\vhost\view 放在此目录就行<
 liunx ：  vhs\Kangle\nodewww\webftp\vhost\view <br>
 ep 后台切换就行<br>
 
+## kangle安装教程
+http://bbs.itzmx.com/thread-7232-1-1.html<br>
 
 ## vhms模板配置:<br>
 windos和linux下一样的<br>
