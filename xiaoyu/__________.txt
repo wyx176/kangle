@@ -1,0 +1,26 @@
+                                                                                                <li>
+													<i class="fa fa-tags"></i>  空间：100M
+												</li>
+												<li>
+													<i class="fa fa-asterisk"></i> 数据库：200M
+												</li>
+												<li>
+													<i class="fa fa-heart"></i> 月流量：无限
+												</li>
+												<li>
+													<i class="fa fa-star"></i> 面板：EP
+												</li>
+												<li>
+													<i class="fa fa-shopping-cart"></i> 礼包：无
+												</li>
+
+
+
+
+
+
+想增加什么自己加段。然后前面的文字图标自己改。
+加的段：
+												<li>
+													<i class="fa fa-shopping-cart"></i> 礼包：无
+												</li>

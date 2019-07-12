@@ -1,0 +1,260 @@
+<style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.STYLE2 {color: #CCCCCC}
+-->
+        </style>
+		        
+		<div id="main">
+        
+            <!-- **幻灯片代码开始** -->
+			 <!-- **幻灯片代码结束** -->            
+          
+            <!-- **中间主体代码** -->                                          
+			<!-- **Primary 开始** -->
+				
+                    <!-- 分隔层代码,空隙,好看点.开始 -->
+             	<div class="content-full-width" id="primary" style="background-image:url({{$STATIC}}style/2014host/images/3.jpg)"> 
+                 <div class="dt-sc-hr-invisible-medium"></div>   
+                    <div class="dt-sc-clear"></div> 
+                    <div class="dt-sc-hr-invisible-medium"></div>                               
+                    <div class="dt-sc-clear"></div>
+                    <!-- 分隔层代码,空隙,好看点.结束 -->
+					
+                  	<!-- **注册账号层开始** -->
+                    <div class="fullwidth-section">
+                        <div class="fullwidth-bg">	  
+                        	<div class="container">
+                            
+                                <div class="aligncenter call-out type2">
+                                    <h2 class="STYLE1">快速. 稳定. 实惠.</h2> 
+                                    <p class="STYLE2">我们的所有节点全部架设于云服务，且均由监控系统每15 秒扫描一次节点，任何节点故障时，系统将自动启用备用设备，尽最大可能不影响用户使用。</p>
+                                    <div class="dt-sc-hr-invisible-small"></div>   
+                                    <div class="dt-sc-clear"></div>                                     
+                                    <a data-delay="300" data-animation="bounceIn" class="dt-sc-button medium lightgreen" href="?c=public&a=register_n">注册账号</a> & <a data-delay="300" data-animation="bounceIn" class="dt-sc-button medium ocean" href="?c=nproduct&a=lists&group_id=1">选购产品服务</a>                               
+                              </div>     
+                            </div>
+                        </div>
+                    </div>
+                  	<!-- **注册账号层开始** -->
+					
+                    <!-- 分隔层代码,空隙,好看点.开始 -->
+                    <div class="dt-sc-hr-invisible-medium"></div>                               
+                    <div class="dt-sc-clear"></div>
+                    <div class="dt-sc-hr-invisible-medium"></div>                               
+                    <div class="dt-sc-clear"></div>
+					</div>                          
+                    <!-- 分隔层代码,空隙,好看点.结束 -->
+					
+					<!-- **域名注册开始** --> 
+					{{if $domainreg_stop==1}}
+					{{else}}
+                    <div class="fullwidth-section dt-sc-parallax" >
+                        <div class="fullwidth-bg">	
+                            <div class="container">
+                            
+                                <div class="dt-sc-hr-invisible-medium"></div>
+                                <div class="dt-sc-clear"></div>
+                                <h2 class="hr-border-title"><span>域名注册</span></h2>
+                                <div class="aligncenter call-out">
+                                    <h2>请在下面输入您想注册的域名</h2> 
+                                    <p class="subtitle-text"></p>
+                                </div>
+                                
+                                <div class="dt-sc-hr-invisible-small"></div>
+                                <div class="dt-sc-clear"></div>                                
+                                
+                                <form action='?c=domain&a=index' method='post' class="search-form domain-search">
+                                	<div class="dt-sc-three-fifth column first">
+                                    	<input type="text" placeholder="" value="" name="domainsearch">
+                                    </div>
+                                    <div class="dt-sc-one-fifth column">
+                                    	<select class="domains" name="domains">
+                                        	<option>.com (首年 10元)</option>
+                                            <option>.info (首年 20元)</option>
+                                            <option>.net (首页 30元)</option>
+                                            <option>.org (首年 40元)</option>
+                                        </select>
+                                    </div>
+                                    <div class="dt-sc-one-fifth column">
+                                    	<input type="submit" class="dt-sc-button medium" name="button" value="查 询">
+										<br> {{foreach from=$domainextension item=row}} <input name='extension[]' type='checkbox' value='{{$row.extension}}'>{{$row.extension}} {{/foreach}}
+                                    </div>
+                                    
+                                    <div class="dt-sc-hr-invisible"></div>
+                                    <div class="dt-sc-clear"></div>   
+                                    
+                                    <div class="search-carousel-wrapper">
+                                        <div class="search-carousel">
+                                            <ul class="frequent-loads carousel_items">
+                                                <li class="column dt-sc-one-fifth"><div class="dom-pack featured">注册域名低至 <span>10元 <sub></sub> </span></div></li>
+                                                <li class="column dt-sc-one-fifth"><div class="dom-pack"><span class="dom-range">.com</span> <span>10元</span></div></li>
+                                                <li class="column dt-sc-one-fifth"><div class="dom-pack"><span class="dom-range">.in</span> <span>20元</span></div></li>
+                                                <li class="column dt-sc-one-fifth"><div class="dom-pack"><span class="dom-range">.org</span> <span>30元</span></div></li>
+                                                <li class="column dt-sc-one-fifth"><div class="dom-pack"><span class="dom-range">.net</span> <span>40元</span></div></li>
+                                                <li class="column dt-sc-one-fifth"><div class="dom-pack"><span class="dom-range">.biz</span> <span>50元</span></div></li>
+                                                <li class="column dt-sc-one-fifth"><div class="dom-pack"><span class="dom-range">.app</span> <span>60元</span></div></li>
+                                            </ul>
+                                            
+                                            <a class="search-prev" href="#"><span class="fa fa-chevron-left"></span></a>
+                                            <a class="search-next" href="#"><span class="fa fa-chevron-right"></span></a>
+                                        </div>
+                                    </div>                                    
+                                </form>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+					{{/if}} 
+					<!-- **域名注册结束** -->     
+					
+                    <!-- 主机套餐主体部分开始 -->
+                         
+                   <div class="fullwidth-section dt-sc-parallax">
+                        <div class="fullwidth-bg">	  
+                        	<div class="container"> 
+							<!-- 主机套餐开始 -->                               
+							<div class="dt-sc-hr-invisible"></div>
+                                <div class="dt-sc-clear"></div>                                                                  
+
+							<h2 class="hr-border-title"><span>主机产品</span></h2>
+                        <div class="dt-sc-pricing-table">
+                            <div class="column dt-sc-one-fourth first">
+                                <div class="dt-sc-pr-tb-col ">
+                                    <div class="dt-sc-tb-header">
+                                        <div class="dt-sc-price"><sup>￥ </sup> 0<span> / 年 </span></div>
+                                        <div class="dt-sc-tb-title"> <h5>免费空间</h5> </div>                                            
+                                        <div class="dt-sc-buy-now"><a class="dt-sc-button medium" href="?c=product&a=sellForm&product=n_9">购 买</a></div>                                            
+                                    </div>
+                                    <ul class="dt-sc-tb-content">
+                                        <li>3G 网页空间</li>
+                                        <li>3G Mysql数据库空间</li>
+                                        <li>无限流量 无限防御</li>
+                                        <li>20M 带宽</li>
+                                        <li>无限站点</li>
+                                        <li class="last">EP控制面板</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="column dt-sc-one-fourth">
+                                <div class="dt-sc-pr-tb-col selected">
+                                    <div class="dt-sc-tb-header">
+                                        <div class="dt-sc-price"><sup>￥ </sup> 0 <span> / 年 </span></div>
+                                        <div class="dt-sc-tb-title"> <h5>国外空间</h5> </div>                                            
+                                        <div class="dt-sc-buy-now"><a class="dt-sc-button medium" href="?c=product&a=sellForm&product=n_10">准备中</a></div>                                            
+                                    </div>
+                                    <ul class="dt-sc-tb-content">
+                                        <li>5G 网页空间</li>
+                                        <li>5G Mysql数据库空间</li>
+                                        <li>无限流量 无限防御</li>
+                                        <li>30M 带宽</li>
+                                        <li>无限站点</li>
+                                        <li class="last">EP控制面板</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="column dt-sc-one-fourth">
+                                <div class="dt-sc-pr-tb-col ">
+                                    <div class="dt-sc-tb-header">
+                                        <div class="dt-sc-price"><sup>￥ </sup> 0 <span> / 年 </span></div>
+                                        <div class="dt-sc-tb-title"> <h5>国内空间</h> </div>                                            
+                                        <div class="dt-sc-buy-now"><a class="dt-sc-button medium" href="?c=product&a=sellForm&product=n_11">准备中</a></div>                                            
+                                    </div>
+                                    <ul class="dt-sc-tb-content">
+                                        <li>6G 网页空间</li>
+                                        <li>6G Mysql数据库空间</li>
+                                        <li>无限流量 无限防御</li>
+                                        <li>40M 带宽</li>
+                                        <li>无限站点</li>
+                                        <li class="last">EP控制面板</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="column dt-sc-one-fourth">
+                                <div class="dt-sc-pr-tb-col ">
+                                    <div class="dt-sc-tb-header">
+                                        <div class="dt-sc-price"><sup>￥ </sup>0<span> / 年 </span></div>
+                                        <div class="dt-sc-tb-title"> <h5>秒赞空间</h5> </div>                                            
+                                        <div class="dt-sc-buy-now"><a class="dt-sc-button medium" href="?c=product&a=sellForm&product=n_12">准备中</a></div>                                            
+                                    </div>
+                                    <ul class="dt-sc-tb-content">
+                                        <li>10G网页空间</li>
+                                        <li>10G Mysql数据库空间</li>
+                                        <li>无限流量 无限防御 无视一切攻击</li>
+                                        <li>50M 带宽</li>
+                                        <li>无限站点</li>
+                                        <li class="last">EP控制面板</li>
+                                    </ul>
+                                </div>
+                            </div> 
+
+														<div class="dt-sc-hr-invisible"></div>
+                                <div class="dt-sc-clear"></div>                                                                  
+                           
+<!-- 主机套餐结束 -->
+                            
+							<!-- 客户留言开始 -->
+                        <h2 class="hr-border-title"><span>公告</span></h2>
+                        <div class="column dt-sc-one-half first">
+                            <div class="testimonial-wrapper">
+                                <div class="rounded-image">
+                                    <span><img alt="Testimonial Image" src="{{$STATIC}}style/2014host/images/1122.jpg"></span>
+                                </div>
+                                
+                                <div class="testimonial-content-wrapper">
+                                    <div class="testimonial-content">
+                                        <blockquote>
+                                            <span class="quote-shape"></span>                                    
+                                            <p>本站所有空间一律1元，注册会送1余额，供你使用，如果用完了，请加入QQ群:599127060联系群主，购买无限余额，只需2元！！！</p>
+                                            <cite><span></span></cite>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>                                
+                        </div>
+                        
+                        <div class="column dt-sc-one-half">
+                            <div class="testimonial-wrapper">
+                                <div class="rounded-image">
+                                    <span><img alt="Testimonial Image" src="{{$STATIC}}style/2014host/images/2233.jpg"></span>
+                                </div>
+                                
+                                <div class="testimonial-content-wrapper">
+                                    <div class="testimonial-content">
+                                        <blockquote>
+                                            <span class="quote-shape"></span>                                    
+                                            <p>站长QQ:928162431 用户QQ群:599127060，用完余额后，可通过平台内的账户充值功能，进行充值，也可以联系站长，购买无限余额，只需要2元！！！</p>
+                                            <cite><span></span></cite>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>                         
+                        </div>        
+							<!-- 客户留言结束 -->
+							
+							</div>
+                        </div>
+                    </div>
+                    <!-- 主机套餐主体部分结束 -->
+            	</div> <!-- **Primary 结束** -->
+            
+			<!-- 首页地下的一个即时小广告层开始 -->          
+            <div id="bbar-wrapper" class="header1">
+                <div class="container">
+                    <div class="float-left">
+                        <a class="icon" href="#"> <span class="ico-phone"></span> </a>
+                        <a class="icon" href="#"> <span class="ico-chat"></span> </a>
+                    </div>
+                    
+                    <div class="float-right">
+                        <p>站长QQ:928162431 用户QQ群:599127060<a class="dt-sc-button small dt-sc-tooltip-top" href="?c=nproduct&a=lists&group_id=1" title=""></a></p>
+                  </div>
+                </div>
+            </div>
+		<!-- 首页地下的一个即时小广告层结束 -->                            
+           
+	    </div> <!-- **主体框架结束 Ends** --> 

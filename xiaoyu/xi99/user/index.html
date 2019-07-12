@@ -1,0 +1,224 @@
+{{if $ucsynclogin}} {{$ucsynclogin}} {{/if}}
+
+<script language='javascript'>
+
+function piao_key_to()
+
+{
+
+	var p = document.getElementById('piao');
+
+	var pdiv = document.getElementById('piao_div');
+
+	var str = '';
+
+	var fstr = "<p><a href=javascript:close_piao('piao_div','piao')><b>关闭窗口</b></a></p>";
+
+		str += fstr;
+
+		str += "<from action=javascript:; method=post>";
+
+		str += "请输入折抵码:<input name='key' id='key' size='20'><input type='button' onclick='key_to()' value='提交'>";
+
+		str += "</from>";
+
+	var offset = $("#offset").offset();
+
+	pdiv.style.height = '100px';
+
+	pdiv.style.width = '300px';
+
+	pdiv.style.background = '#F5DEB3';
+
+	pdiv.innerHTML = str;
+
+	p.style.height = pdiv.style.height + 30 + 'px';
+
+	p.style.width = pdiv.style.width + 30 + 'px';
+
+	p.style.top  = offset.top-40;
+
+	p.style.left  = offset.left -60;
+
+	p.style.display = 'block';
+
+	
+
+}
+
+function key_to()
+
+{
+
+	var key = document.getElementById('key').value;
+
+	$.ajax({
+
+		type:'post',
+
+		url :'?c=entkey&a=keyToMoney',
+
+		data:'key=' + key,
+
+		dataType:'json',
+
+		success:function(ret) {
+
+			if (ret['code'] != 200) {
+
+				return alert(ret['msg'] ? ret['msg'] :"折底码不能为空");
+
+			}
+
+			alert("折抵成功.请查看账户余额");
+
+			close_piao('piao_div','piao');
+
+		}
+
+	});
+
+}
+
+function create_hash()
+
+{
+
+	$.ajax({
+
+		type:'get',
+
+		url :'?c=user&a=randAgentHash',
+
+		data:null,
+
+		dataType:'json',
+
+		success:function(ret) {
+
+			if (ret['code'] != 200) {
+
+				return alert(ret['msg'] ? ret['msg'] : "生成代理密钥失败");
+
+			}
+
+			window.location.reload();
+
+		}
+
+		
+
+		
+
+		
+
+	});
+
+	
+
+}
+
+</script>
+
+	<script type="text/javascript" src="{{$STATIC}}style/2014host/js/jquery.tabs.min.js"></script>
+    <script src="{{$STATIC}}style/2014host/js/jquery.validate.min.js"></script>
+
+	<div id='piao' class='piao' style='display: none'><div id='piao_div' class='piao_div overflow'></div></div>
+
+  {{dispatch c='user' a='left'}}
+
+                        <div class="column dt-sc-two-third">
+                            <div class="side-nav-content">
+                        <div class="column dt-sc-one-column blog-fullwidth with-sidebar">
+						
+                            <div class="dt-sc-tabs-container">
+                                <ul class="dt-sc-tabs-frame">
+                                    <li><a href="#" class="current">Accounts - 账户信息</a></li>
+                                    <li><a href="#" title="">Notice - 站内通知</a></li>
+                                </ul>
+                                
+                                <div class="dt-sc-tabs-frame-content" style="display: block;">
+								<p>
+                                用户名：{{$user.username}}<br />
+			                    姓  名：{{$user.name}}<br />
+			                    登陆IP：{{$login_ip}}<br />
+			                    E-mail:{{$user.email}}<br />
+			                    {{if $user.agent_id>0}}
+			                    您的代理级别：{{$user.agent_name}}<input type='button' value='获取代理密钥' onclick='create_hash()'><br />
+			                    您的代理hash密钥：{{$user.agent_hash}}<br />
+			                    {{/if}}
+			                    账户余额：<b>￥{{$user.money/100}} 元</b>�	{{if $entkey}}�[<a href='javascript:piao_key_to();'>折抵码兑换</a>]{{/if}}<br />
+                            <a class="dt-sc-button  small  alignleft" href="?c=money&a=addFrom"><i class="fa fa-money"></i>� 账户充值</a>� <a class="dt-sc-button  small  aligncenter  lightgreen" href="?c=nproduct&a=lists&group_id=2"><i class="fa fa-shopping-cart"></i>� 订购产品</a>
+								</p>
+								</div>
+                                
+                                <div class="dt-sc-tabs-frame-content" style="display: none;">
+                                <p>{{dispatch c='public'  a='pagelistnews'}}</p>
+								</div>
+                            </div>
+						
+
+                                <div class="dt-sc-hr-invisible"></div>
+                                <div class="dt-sc-clear"></div>  
+                                 
+                                  <h3 class="hr-border-title"><span>FAQ & 常见问题</span></h3> 
+                                    <div class="dt-sc-toggle-set">
+                                        <div class="dt-sc-toggle">
+                                            <h5 class="dt-sc-toggle-accordion active"><a href="#" title="">如何为账户充值？</a></h5>	
+                                            <div class="dt-sc-toggle-content">
+                                              <div class="dt-sc-block">
+                                                  <p>本平台所有空间永久免费，注册后会自动赠送100余额，供您使用</p>
+                                                    <p>如果余额用完了，那么请加入QQ群联系我加余额，免费！免费！</p>
+                                                    <p>站长QQ:928162431 用户QQ群:599127060</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="dt-sc-toggle">
+                                            <h5 class="dt-sc-toggle-accordion"><a href="#" title="">如何购买主机产品？</a></h5>	
+                                            <div class="dt-sc-toggle-content">
+                                                <div class="dt-sc-block">
+                                                    <p>点击“订购产品”，选择您需要的主机类型，点击“现在订购”即可跳转支付页面</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="dt-sc-toggle">
+                                            <h5 class="dt-sc-toggle-accordion"><a href="#" title="">如何为我的主机绑定域名？</a></h5>	
+                                            <div class="dt-sc-toggle-content">
+                                                <div class="dt-sc-block">
+                                                    <p>进入主机管理后台，后台中有个“域名绑定”按钮，点击进入，在域名输入框输入您的域名即可，紧记，需要在域名管理后台中添加IP到A记录中</p>
+												</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="dt-sc-toggle">
+                                            <h5 class="dt-sc-toggle-accordion"><a href="#" title="">我的网站需要备案才能访问吗？</a></h5>	
+                                            <div class="dt-sc-toggle-content">
+                                                <div class="dt-sc-block">
+                                                    <p>不需要的，此为香港空间，无需备案即可直接访问！</p>
+													</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="dt-sc-toggle last">
+                                            <h5 class="dt-sc-toggle-accordion"><a href="#" title="">我的网站文件应该放在哪里？</a></h5>	
+                                            <div class="dt-sc-toggle-content">
+                                                <div class="dt-sc-block">
+                                                    <p>网站文件应该放到“wwwroot”的文件夹中，此为访问路径！</p>
+													</div>
+                                            </div>
+                                        </div> 
+                                               
+                                    </div>     
+
+
+                            </div>
+                     </div> 
+                        </div>                            
+                    </div> <!-- **Primary Ends** -->
+                                        
+                </div> <!-- **Container Ends** --> 
+            </section>  <!-- **Content Main Ends** -->
+</div>
+
