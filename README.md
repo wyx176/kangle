@@ -13,10 +13,10 @@ user/view/ <br>
 上传到你销售网站这个目录即可<br>
 然后解压后台切换，注意路径哈<br>
 
-##开启ssl##
+## 开启ssl
 http://bbs.itzmx.com/forum.php?mod=viewthread&tid=12668&highlight=ssl<br>
 
-##强制跳转https##
+## 强制跳转https
 在.htaccess文件中，添加以下代码(将下方的第三行的xxxxx.cn替换为你的网址)：<br>
 .htaccess放在web根目录(wwwroot目录下)
 <pre><code>
