@@ -6,7 +6,8 @@ http://bbs.itzmx.com/thread-7232-1-1.html<br>
 windows：  kangle目录\Kangle\nodewww\webftp\vhost\view 放在此目录就行<br>
 liunx ：  vhs\Kangle\nodewww\webftp\vhost\view <br>
 ep 后台切换就行<br>
-
+## 404页地址:<br>
+/vhs/kangle/www<br>
 ## vhms模板配置:<br>
 windos和linux下一样的<br>
 user/view/ <br>
